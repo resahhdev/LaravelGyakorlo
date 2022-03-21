@@ -39,7 +39,7 @@ class CarController extends Controller
     public function store(Request $request)
     {
         Car::create( $request->all() );
-        return redirect( "/cars" );
+        return redirect( "/" );
     }
 
     /**
@@ -50,7 +50,17 @@ class CarController extends Controller
      */
     public function show(Request $request)
     {
-        print_r( $request );
+        $cars = Car::where( "color", $request->color )->get();
+
+        // foreach( $cars as $car ) {
+
+        //     echo $car->brand;
+        // }
+        // echo "<pre>";
+        // print_r( $car[0]->brand );
+        return view( "show_car", [
+            "cars" => $cars
+        ]);
     }
 
     /**
@@ -75,12 +85,13 @@ class CarController extends Controller
      * @param  \App\Models\Car  $car
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update( Request $request )
     {
+        
         $car = Car::find( $request->id );
         $car->update( $request->all() );
         
-        return redirect( "/cars" );
+        return redirect( "/" );
     }
 
     /**
@@ -95,6 +106,6 @@ class CarController extends Controller
         // $car = Car::find( $id );
         // $car->delete();
 
-        return redirect( "/cars" );
+        return redirect( "/" );
     }
 }

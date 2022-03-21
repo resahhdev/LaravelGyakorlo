@@ -21,7 +21,10 @@ use App\Http\Controllers\CarController;
 Route::get( "/", [ CarController::class, "index" ]);
 Route::get( "/new-car", [ CarController::class, "create" ]);
 Route::post( "/store-car", [ CarController::class, "store" ]);
-Route::post( "/show-car/{value}", [ CarController::class, "show" ]);
+Route::post( "/show-car", [ CarController::class, "show" ]);
+Route::get( "/edit-car/{id}", [ CarController::class, "edit" ]);
+Route::put( "/update-car", [ CarController::class, "update" ]);
+Route::get( "/delete-car/{id}", [ CarController::class, "destroy" ]);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

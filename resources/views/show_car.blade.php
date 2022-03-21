@@ -1,26 +1,8 @@
 @extends( "layouts.master" )
 
 @section( "content" )
-<div class="container">
-<div class="row mt-5">
-    <div class="col-lg-3 col-md-6 col-sm-12 offset-lg-3">
-        <form class="form-control"action="show-car" method="post">
-            @csrf
-            <select class="form-select" name="color">
-                <option selected>Szín</option>
-                <option>kék</option>
-                <option>sárga</option>
-                <option>piros</option>
-            </select>
-            <button class="btn btn-outline-info btn-sm mt-2" type="submit">Keresés</button>
-        </form>
-    </div>
-    <div class="col-lg-3 col-md-6 col-sm-12 text-end">
-        <a href="/register">Regisztráció</a>
-        <a href="/login">Bejelentkezés</a>
-    </div>
-</div>
-<div class="row mt-5">
+<div class="row">
+    <div class="col-12">
     <div class="col-lg-8 col-md-12 col-sm-12">
         <table class="table table-striped">
         <thead>
@@ -50,9 +32,6 @@
         </tbody>
         </table>
     </div>
-    <div class="col-lg-2 col-md-12 col-sm-12">
-        <a href="/new-car"><button class="btn btn-primary">Új autó</button></a>
     </div>
-</div>
 </div>
 @endsection
