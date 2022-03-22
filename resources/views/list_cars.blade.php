@@ -18,7 +18,8 @@
     <div class="col-lg-3 col-md-6 col-sm-12 text-end">
         <a href="/register">Regisztráció</a>
         <a href="/login">Bejelentkezés</a>
-    </div>
+        <a href="/logout">Kijelentkezés</a>
+     </div>
 </div>
 <div class="row mt-5">
     <div class="col-lg-8 col-md-12 col-sm-12">

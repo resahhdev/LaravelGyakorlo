@@ -2,7 +2,6 @@
 @section( "content" )
 <div class="row mt-5">
     <div class="col-lg-3 offset-lg-3">
-        {{ $car->id }}
         <form class="form-control" action="/update-car" method="post">
             @csrf
             @method( "PUT" )

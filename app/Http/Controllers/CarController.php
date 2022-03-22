@@ -52,12 +52,6 @@ class CarController extends Controller
     {
         $cars = Car::where( "color", $request->color )->get();
 
-        // foreach( $cars as $car ) {
-
-        //     echo $car->brand;
-        // }
-        // echo "<pre>";
-        // print_r( $car[0]->brand );
         return view( "show_car", [
             "cars" => $cars
         ]);
@@ -103,8 +97,6 @@ class CarController extends Controller
     public function destroy( $id )
     {
         Car::destroy( $id );
-        // $car = Car::find( $id );
-        // $car->delete();
 
         return redirect( "/" );
     }

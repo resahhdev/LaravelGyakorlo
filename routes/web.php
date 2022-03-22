@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarController;
-
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,14 +17,17 @@ use App\Http\Controllers\CarController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+Route::middleware( "auth" )->group( function() {
 
+    Route::get( "/new-car", [ CarController::class, "create" ]);
+    Route::get( "/edit-car/{id}", [ CarController::class, "edit" ]);
+    Route::get( "/delete-car/{id}", [ CarController::class, "destroy" ]);
+});
 Route::get( "/", [ CarController::class, "index" ]);
-Route::get( "/new-car", [ CarController::class, "create" ]);
 Route::post( "/store-car", [ CarController::class, "store" ]);
 Route::post( "/show-car", [ CarController::class, "show" ]);
-Route::get( "/edit-car/{id}", [ CarController::class, "edit" ]);
 Route::put( "/update-car", [ CarController::class, "update" ]);
-Route::get( "/delete-car/{id}", [ CarController::class, "destroy" ]);
+Route::get( "/logout", [ AuthenticatedSessionController::class, "destroy" ]);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
